@@ -50,17 +50,17 @@
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th>day</th>
-                        <th>in</th>
-                        <th>out</th>
+                        <th>day</th><th>in</th><th>out</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($worktimes as $worktime)
                     <tr>
-                        <td>Mon</td>
-                        <td>1/1</td>
-                        <td>09:00</td>
+                        <td>{{ $worktime->day}}</td>
+                        <td>{{ $worktime->in_time}}</td>
+                        <td>{{ $worktime->out_time}}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             </div>

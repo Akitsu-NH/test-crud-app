@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Worktime;
 
 class DispController extends Controller
 {
     public function disp()
     {
-        return view('index');
+        $worktimes = Worktime::all();
+        return view('index', ['worktimes'=>$worktimes]);
     }
 
 }

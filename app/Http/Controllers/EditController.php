@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Worktime;
 
 class EditController extends Controller
 {
@@ -31,6 +32,8 @@ class EditController extends Controller
                 ]);
             }
         }
-        return view('index');
+
+        $worktimes = Worktime::all();
+        return view('index', ['worktimes'=>$worktimes]);
     }
 }
