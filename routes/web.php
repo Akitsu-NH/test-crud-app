@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DispController;
+use App\Http\Controllers\EditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/main', [DispController::class, 'disp']);
+Route::post('/main/edit', [EditController::class, 'edit']);
+
+// Route::fallback(function () {
+//     return redirect()->action([DispController::class, 'disp']);
+// });
+
