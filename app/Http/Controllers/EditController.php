@@ -31,6 +31,9 @@ class EditController extends Controller
                     'work_status' => 0
                 ]);
             }
+        } else if ($request->has('delete')){
+            // ボタン
+            DB::table('worktimes')->where('id', $request->input('delete_id'))->delete();
         }
 
         $worktimes = Worktime::all();

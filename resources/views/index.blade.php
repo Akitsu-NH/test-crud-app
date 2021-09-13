@@ -33,14 +33,13 @@
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ url('/main/edit')}}" class="form-row align-items-center justify-content-center h-100" method="post">
-                            @csrf
-                            <div class="col">
-                                <input type="submit" class="form-control btn btn-lg btn-info" name="in" value="出勤/IN">
-                            </div>
-                            <div class="col">
-                                <input type="submit" class="form-control btn btn-lg btn-light" name="out" value="退勤/OUT">
-                            </div>
-                        </form>
+                        @csrf
+                        <div class="col">
+                            <input type="submit" class="form-control btn btn-lg btn-info" name="in" value="出勤/IN">
+                        </div>
+                        <div class="col">
+                            <input type="submit" class="form-control btn btn-lg btn-light" name="out" value="退勤/OUT">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,7 +49,7 @@
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th>day</th><th>in</th><th>out</th>
+                        <th>day</th><th>in</th><th>out</th><th>delete<th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,18 +58,17 @@
                         <td>{{ $worktime->day}}</td>
                         <td>{{ $worktime->in_time}}</td>
                         <td>{{ $worktime->out_time}}</td>
+                        <input type="hidden" name="delete_id" value={{ $worktime->id }}>
+                        <td><input type="submit" class="btn btn-outline-danger btn-sm" name="delete" value="削除"></td>
                     </tr>
                     @endforeach
                 </tbody>
+                </form>
             </table>
             </div>
-
         </div>{{-- /container --}}
 
         <script>
-            // window.addEventListener('DOMContentLoaded', () => {
-            //     document.getElementById('current-ymd').textContent = now.format('YYYY/MM/DD');
-            // });
             function currentTime() {
                 let now = dayjs();
                 document.getElementById('current-ymd').textContent = now.format('YYYY/MM/DD');
