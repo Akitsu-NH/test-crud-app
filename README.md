@@ -25,6 +25,9 @@ PHP 7.4.7
 Bootstrap4  
 Day.js
 
+## DB
+MySQL 8.0.23
+
 ## TODO
 
 - 出退勤状態のカラムを分離
